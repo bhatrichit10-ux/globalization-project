@@ -1,275 +1,141 @@
-/* Pure black background */
-body {
-  margin: 0;
-  padding: 0;
-  background: #000000;
-  color: #e0e0e0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  overflow-x: hidden;
-  position: relative;
-  min-height: 100vh;
+html, body {
+  margin: 0; padding: 0; min-height: 100vh;
+  background: #0f1013;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
 }
+body { overflow-x: hidden; }
 
-/* Morph blob background behind main content */
-.morph-blobs {
-  position: fixed;
-  top: 0; left: 50%;
-  width: 120vw;
-  height: 120vh;
-  pointer-events: none;
-  transform: translateX(-50%);
-  z-index: 0;
-  filter: blur(100px);
-  opacity: 0.3;
-  animation: morphShift 20s ease-in-out infinite;
-  background: linear-gradient(135deg, #00ffd8, #ff1a75);
-  clip-path: polygon(50% 0%, 75% 15%, 100% 50%, 75% 85%, 50% 100%, 25% 85%, 0% 50%, 25% 15%);
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: #0b0b0d;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 4vw; min-height: 72px;
+  border-bottom: 1px solid #17181a;
 }
-
-/* Morph shape animation */
-@keyframes morphShift {
-  0%, 100% {
-    clip-path: polygon(
-      50% 0%, 75% 15%, 100% 50%, 75% 85%, 50% 100%, 25% 85%, 0% 50%, 25% 15%
-    );
-  }
-  25% {
-    clip-path: polygon(
-      55% 5%, 80% 25%, 95% 55%, 70% 90%, 60% 100%, 25% 80%, 10% 55%, 25% 10%
-    );
-  }
-  50% {
-    clip-path: polygon(
-      45% 10%, 70% 0%, 95% 45%, 80% 75%, 50% 95%, 20% 75%, 5% 60%, 30% 25%
-    );
-  }
-  75% {
-    clip-path: polygon(
-      60% 10%, 85% 20%, 100% 55%, 85% 85%, 60% 90%, 25% 80%, 10% 60%, 30% 20%
-    );
-  }
+.logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; color: #40bcf4; }
+.nav-links {
+  display: flex; gap: 2.2rem;
 }
-
-/* Header styling - layered glow */
-header {
-  position: sticky;
-  top: 0;
+.nav-links a {
+  color: #b6beca; text-decoration: none;
+  font-weight: 600; font-size: 1rem; position: relative; letter-spacing: 0.02em;
+  padding-bottom: 4px;
+  transition: color 0.22s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.nav-links a:hover, .nav-links a.active {
+  color: #fff;
+}
+.nav-links a.active::after, .nav-links a:hover::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 2px; border-radius: 3px;
+  background: linear-gradient(90deg,#40bcf4,#ffc600);
   width: 100%;
-  background: rgba(0,0,0,0.75);
-  color: #00ffd8;
-  font-weight: 700;
-  font-size: 2rem;
-  text-align: center;
-  padding: 1.2rem 0;
-  z-index: 11;
-  text-shadow:
-    0 0 10px #00ffd8,
-    0 0 40px #00ffd8cc,
-    0 0 80px #00ffd8bb;
-  user-select: none;
+}
+.nav-links a::after {
+  content:'';
+  width: 0; height: 2px; background: none; display: block;
+  transition: width 0.33s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
-/* Main container */
-main {
-  position: relative;
-  z-index: 10;
-  max-width: 900px;
-  margin: 5rem auto 6rem;
-  padding: 1rem 2rem;
-  backdrop-filter: blur(8px);
-  background: rgba(20, 20, 20, 0.88);
-  box-shadow: 0 0 50px #ff1a75aa inset, 0 6px 40px rgba(255,26,117,0.3);
-  border-radius: 25px;
+.main-hero {
+  min-height: 84vh; max-width: 1180px; margin: 0 auto;
+  display: flex; align-items: center; gap: 4vw; justify-content: space-between;
+}
+.hero-content {
+  flex: 1;
+  padding: 3vw 0;
+  display: flex; flex-direction: column; gap: 1.4rem;
+}
+.hero-headline {
+  font-size: 3rem; font-weight: 900; letter-spacing: -1.3px;
+  color:#fff; line-height: 1.1; margin-bottom: 0.5rem;
+  background: -webkit-linear-gradient(45deg, #fff 80%, #40bcf4 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  animation: fadeUp .9s cubic-bezier(.36,1.09,.77,1) 0s 1 normal both;
+}
+.hero-lead {
+  font-size: 1.3rem; color: #d2d7dc; line-height: 1.5;
+  max-width: 580px;
+  animation: fadeUp .97s cubic-bezier(.36,1.09,.77,1) 0.1s 1 normal both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px);}
+  to   { opacity: 1; transform: none;}
 }
 
-/* Section styling with morphing clipping */
-section {
-  position: relative;
-  background: linear-gradient(145deg, #1a1a1a, #111);
-  margin-bottom: 3rem;
-  padding: 2rem 3rem;
-  border-radius: 25px;
-  box-shadow:
-    inset 0 0 30px rgba(255, 26, 117, 0.8),
-    0 0 20px rgba(0, 255, 216, 0.25);
-  overflow: hidden;
-  clip-path: polygon(
-    20% 0%, 80% 0%, 100% 25%, 100% 75%, 80% 100%, 20% 100%, 0% 75%, 0% 25%
-  );
-  transition: clip-path 1.8s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease;
+.meta-bar {
+  display: flex; align-items: center; gap: 1.3rem;
+  font-size: 1.04rem; margin-bottom: 1.6rem; opacity: 0.90;
+}
+.badge {
+  display: inline-block; min-width: 34px; padding: 0.2em 1em;
+  border-radius: 1em; font-weight: 700;
+  font-size: 1em; margin: 0 2px;
+  color: #111;
+  background: #ffe169;
+}
+.badge.blue { color: #fff; background: #397EFF;}
+.badge.yellow { color: #111; background: #FFE169;}
+.badge.pulse { animation: pulseBadge 1.25s infinite alternate;}
+@keyframes pulseBadge {
+  from { box-shadow: 0 0 0 #FFA60000;}
+  to   { box-shadow: 0 0 14px #ffc20099;}
 }
 
-/* Morph clip-path on hover */
-section:hover {
-  clip-path: polygon(
-    15% 10%, 85% 5%, 95% 35%, 95% 70%, 85% 90%, 15% 95%, 5% 75%, 5% 30%
-  );
-  box-shadow:
-    inset 0 0 40px #00ffd8dd,
-    0 0 35px #ff1a75dd;
+.globe-frame {
+  flex-shrink: 0; width: 380px; max-width: 90vw; min-height: 410px;
+  display: flex; align-items: center; justify-content: center;
 }
 
-/* Animated headings */
-h2 {
-  color: #00ffd8;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 2.5rem;
-  margin-bottom: 1.8rem;
-  filter: drop-shadow(0 0 4px #00ffd8aa);
-  animation: glowPulse 3s ease-in-out infinite alternate;
+.hero-cta {
+  background: linear-gradient(90deg,#FFC200,#ffe082);
+  color: #101015; font-size: 1.18rem; font-weight: 700;
+  padding: 1.08em 2.4em; border:none; border-radius: 16px;
+  display: inline-flex; align-items: center; gap: .85em; margin-top: 18px;
+  box-shadow: 0 10px 32px #FFC20030;
+  cursor: pointer; outline:none;
+  transition: background .26s, box-shadow .22s, transform .13s;
+}
+.hero-cta:hover, .hero-cta:focus {
+  background: linear-gradient(85deg,#FFD13D 10%,#FFC20090 97%);
+  box-shadow: 0 5px 30px #FFC20077,0 1px 8px #fff3;
+  transform: translateY(-2px) scale(1.025);
+}
+.hero-cta:active { transform: scale(.98);}
+.hero-cta .icon { font-size: 1.17em; line-height: 1; }
+
+.section {
+  max-width: 950px;
+  margin: 5rem auto 2rem auto;
+  padding: 2.7rem 2.3rem;
+  background: #171a21;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 18px #14151B 11%;
+  border-top: 2.6px solid #23252B;
+  opacity: 0; transform: translateY(50px);
+  transition: opacity 0.7s cubic-bezier(.28,1.35,.76,1.07),transform 0.8s cubic-bezier(.33,1.37,.77,1.07);
+}
+.section.visible {
+  opacity: 1; transform: none;
+}
+.section h2 {
+  font-size: 2.1rem; color: #fff; font-weight: 700; margin-bottom: 1.3em;
+  background: -webkit-linear-gradient(45deg, #fff 85%, #40bcf4 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+.section p, .section ul { color: #b2b8c5; font-size: 1.13rem; line-height: 1.7; }
+.section ul { margin: 1.2em 0 0 1.5em;}
+.section ul li { margin-bottom: 0.77em;}
+.section img {
+  border-radius: 1.2rem;
+  margin: 2em 0; max-width: 97%; max-height: 340px; box-shadow: 0 2px 18px #40BCF477;
 }
 
-/* Pulsing glow */
-@keyframes glowPulse {
-  from {
-    filter: drop-shadow(0 0 3px #00ffd8aa);
-  }
-  to {
-    filter: drop-shadow(0 0 15px #00ffd8ff);
-  }
-}
-
-/* Paragraph and list fade slide */
-p, ul {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: #ccc;
-  margin-bottom: 1rem;
-  animation: fadeSlideUp 1.2s ease forwards;
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-p.visible, ul.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Fade and slide up text */
-@keyframes fadeSlideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Images with morph zoom & glow */
-img {
-  width: 100%;
-  max-height: 320px;
-  border-radius: 30px;
-  object-fit: cover;
-  filter: drop-shadow(0 0 20px #ff1a75aa);
-  transition: transform 1.4s ease, filter 1.4s ease;
-  cursor: pointer;
-}
-
-img:hover {
-  transform: scale(1.12) rotate(2deg);
-  filter: drop-shadow(0 0 26px #00ffd8ff);
-}
-
-/* Accordion buttons with glowing morph effect */
-.accordion {
-  display: block;
-  width: 100%;
-  background: linear-gradient(145deg, #00ffd8, #ff1a75);
-  padding: 1.2rem 1.5rem;
-  border: none;
-  border-radius: 30px;
-  font-weight: 700;
-  font-size: 1.3rem;
-  color: white;
-  cursor: pointer;
-  margin-top: 2rem;
-  box-shadow:
-    0 0 30px #00ffd8,
-    0 0 40px #ff1a75;
-  transition: background 0.7s ease, box-shadow 0.6s ease;
-  position: relative;
-  overflow: hidden;
-  user-select: none;
-}
-
-.accordion::after {
-  content: '▼';
-  position: absolute;
-  right: 25px;
-  font-size: 1.2rem;
-  transition: transform 0.5s ease;
-}
-
-.accordion.active::after {
-  transform: rotate(180deg);
-}
-
-.accordion:hover {
-  background: linear-gradient(145deg, #ff1a75, #00ffd8);
-  box-shadow:
-    0 0 40px #ff1a75,
-    0 0 50px #00ffd8;
-}
-
-/* Accordion panel with smooth animated morph clipping */
-.panel {
-  max-height: 0;
-  padding: 0 1.8rem;
-  background: linear-gradient(135deg, #111111ee, #222222ee);
-  border-radius: 0 0 30px 30px;
-  color: #bbb;
-  overflow: hidden;
-  opactiy: 0;
-  clip-path: inset(100% 0 0 0);
-  transition:
-    max-height 0.7s ease,
-    padding 0.5s ease,
-    clip-path 0.9s ease,
-    opacity 0.6s ease;
-}
-
-.panel.open {
-  max-height: 300px;
-  padding: 1.2rem 1.8rem 1.8rem;
-  opacity: 1;
-  clip-path: inset(0 0 0 0);
-}
-
-/* Scroll progress bar on top */
-#progress-bar {
-  position: fixed;
-  top: 0; left: 0;
-  height: 6px;
-  width: 0%;
-  background: linear-gradient(90deg, #00ffd8, #ff1a75);
-  box-shadow: 0 0 10px #ff1a75, 0 0 15px #00ffd8;
-  z-index: 3000;
-  transition: width 0.25s ease-out;
-}
-
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.6rem;
-  }
-  nav {
-    justify-content: center;
-  }
-  nav a {
-    margin: 0 1rem 0.5rem 1rem;
-    font-size: 1.05rem;
-  }
-  main {
-    padding: 1rem 1.8rem;
-    margin: 3rem auto 4rem;
-  }
-  section {
-    padding: 2rem 2rem;
-    border-radius: 20px;
-  }
-  .accordion {
-    font-size: 1.14rem;
-    border-radius: 25px;
-  }
+@media (max-width: 800px) {
+  .main-hero {flex-direction:column;gap: 2.7rem;}
+  .globe-frame {margin: 0 auto;}
+  .section {padding: 1rem;}
 }

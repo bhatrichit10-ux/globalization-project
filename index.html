@@ -2,107 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Globalisation Project</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Globalisation Project – Professional Modern UI</title>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <header>
-    <h1>Globalisation Project Overview</h1>
-    <nav>
-      <a href="#pre-modern">Pre-Modern Globalisation</a>
-      <a href="#silk-route">Silk Route & Indentured Labour</a>
-      <a href="#economic">Economic Globalisation</a>
-      <a href="#transport">Transport & Communication</a>
-      <a href="#impact">Impact on India</a>
-      <a href="#wto">Role of WTO</a>
-      <a href="#challenges">Challenges & Fair Globalisation</a>
-      <a href="#regions">Regional Impact</a>
-    </nav>
-  </header>
+  <nav>
+    <div class="logo">Globalisation</div>
+    <div class="nav-links">
+      <a href="#about" class="active">About</a>
+      <a href="#routes">Silk Route</a>
+      <a href="#economics">Economics</a>
+      <a href="#impacts">Impacts</a>
+      <a href="#wto">WTO</a>
+      <a href="#regions">Regions</a>
+    </div>
+  </nav>
   <main>
-    <section id="pre-modern">
-      <h2>Globalisation in Pre-Modern World</h2>
-      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80" alt="Ancient trade routes"/>
+    <section class="main-hero">
+      <div class="hero-content">
+        <div class="meta-bar">
+          <span class="badge blue">2025</span>
+          <span>ONLINE</span>
+          <span class="badge yellow">LIVE</span>
+        </div>
+        <div class="hero-headline">Discover the global<br/>connections that shape our world</div>
+        <div class="hero-lead">Explore the story of globalisation from ancient spice routes to the digital age. See how trade, culture, technology, and people connect across every border—and why it matters today.</div>
+        <button class="hero-cta">
+          Watch keynote
+          <span class="icon">→</span>
+        </button>
+      </div>
+      <div class="globe-frame">
+        <!-- Replace below SVG with Canvas/Three.js globe for real app -->
+        <svg width="250" height="250" viewBox="0 0 250 250">
+          <circle cx="125" cy="125" r="105" fill="#161b22" stroke="#40BCF4" stroke-width="9" opacity=".7"/>
+          <ellipse cx="125" cy="125" rx="103" ry="45" fill="none" stroke="#40BCF499" stroke-width="2"/>
+          <ellipse cx="125" cy="125" rx="103" ry="27" fill="none" stroke="#40BCF466" stroke-width="2"/>
+          <ellipse cx="125" cy="125" rx="45" ry="103" fill="none" stroke="#40BCF499" stroke-width="2"/>
+          <ellipse cx="125" cy="125" rx="27" ry="103" fill="none" stroke="#40BCF466" stroke-width="2"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <h2>Globalisation in the Pre-Modern World</h2>
+      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80" alt="Ancient trade routes" />
       <p>Globalisation existed long before the modern age, though it was slower and less connected than today. Ancient kingdoms and empires traded goods, exchanged ideas, and spread culture across continents.</p>
       <ul>
         <li>India’s spices, textiles, and precious stones were famous in Rome and Southeast Asia.</li>
-        <li>The spread of religions like Buddhism and Islam illustrates cultural globalisation.</li>
-        <li>Empires such as the Roman, Mauryan, and Mongol empires built vast trade routes.</li>
-        <li>Caravans, ships, and migration created connections despite lack of modern transport.</li>
+        <li>Religions like Buddhism and Islam spread across continents, showing cultural globalisation.</li>
+        <li>Empires such as the Roman, Mauryan, and Mongol empires built vast trade networks.</li>
+        <li>Caravans, ships, and migrations created connections long before modern tech.</li>
       </ul>
     </section>
-    <section id="silk-route">
-      <h2>Silk Route and Indentured Labour</h2>
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Silk Road visual"/>
-      <p>The Silk Route was a vital trade network connecting China, India, Central Asia, and Europe. Goods like silk, spices, and cotton moved along these routes, as did ideas and diseases like the plague.</p>
-      <ul>
-        <li>India was both a producer and a transit hub along Silk Route.</li>
-        <li>During colonial times, Indian indentured labourers worked in British colonies spreading culture worldwide.</li>
-        <li>They faced harsh contracts but helped globalise Indian food, traditions, and customs.</li>
-      </ul>
-    </section>
-    <section id="economic">
-      <h2>Economic Globalisation (1991 Liberalisation)</h2>
-      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Economic growth"/>
-      <p>India’s economic globalisation took off in 1991 with liberalisation reforms opening the economy to foreign investment and trade.</p>
-      <ul>
-        <li>Reduction of tariffs and trade barriers improved market access.</li>
-        <li>IT companies like Infosys and TCS grew rapidly serving global clients.</li>
-        <li>Foreign direct investment boosted multiple sectors—automobiles, telecom, retail.</li>
-      </ul>
-    </section>
-    <section id="transport">
-      <h2>Role of Transport and Communication</h2>
-      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Modern transport and communication"/>
-      <p>Modern transport and communication technologies are key drivers of globalisation, making movement faster and connecting people instantly.</p>
-      <ul>
-        <li>Container ships, airplanes, and railways enable global cargo movement.</li>
-        <li>Mobile phones, satellites, and the internet allow real-time global communication.</li>
-        <li>Indian professionals work remotely with international companies.</li>
-      </ul>
-    </section>
-    <section id="impact">
-      <h2>Positive and Negative Impact of Globalisation on India</h2>
-      <img src="impact-chart.png" alt="Globalisation Impact Chart" style="max-width:600px;width:100%; margin-bottom:1rem"/>
-      <p>Globalisation has brought many benefits like job creation and foreign investment, but also challenges for small producers and local workers.</p>
-      <ul>
-        <li>Positive: Foreign investment, IT growth, consumer choices, cultural spread, tourism.</li>
-        <li>Negative: Small producers undercut, job losses in traditional sectors, growing inequality.</li>
-      </ul>
-    </section>
-    <section id="wto">
-      <h2>Role of WTO in Promoting Globalisation</h2>
-      <p>The World Trade Organization (WTO), established in 1995, encourages free trade and settles disputes, offering India access to global markets.</p>
-      <ul>
-        <li>WTO promotes reduction in import duties and market opening.</li>
-        <li>Policies can favour developed countries, creating inequality challenges.</li>
-      </ul>
-    </section>
-    <section id="challenges">
-      <h2>Challenges in Fair Globalisation</h2>
-      <p>Ensuring fair wages, safe working conditions, environmental protection, and balanced benefits remain major challenges for India.</p>
-      <ul>
-        <li>Need for skill training and support for small industries</li>
-        <li>Stronger international agreements to protect weaker economies</li>
-        <li>Inclusive growth and environmental sustainability</li>
-      </ul>
-    </section>
-    <section id="regions">
-      <h2>Regional Impact</h2>
 
-      <button class="accordion">Tamil Nadu</button>
-      <div class="panel">
-        <p>Tamil Nadu thrives in textiles, automobiles, IT exports, and tourism thanks to globalisation. However, small weavers face challenges from cheap imports.</p>
-      </div>
+    <!-- Add more sections here with their respective IDs (routes, economics, impacts, wto, regions, etc.) -->
 
-      <button class="accordion">Jammu and Kashmir</button>
-      <div class="panel">
-        <p>Exports of handicrafts and tourism have increased, but machine-made competition and western cultural changes affect local artisans.</p>
-      </div>
-    </section>
   </main>
-
-  <script src="scripts.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

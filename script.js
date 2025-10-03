@@ -1,34 +1,21 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const accordions = document.querySelectorAll('.accordion');
+// Section fade-in on scroll (Intersection Observer)
+const observer = new window.IntersectionObserver(
+  entries => entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  }),
+  { threshold: 0.09 }
+);
+document.querySelectorAll('.section').forEach(section => observer.observe(section));
 
-  accordions.forEach(acc => {
-    acc.addEventListener('click', function () {
-      // Toggle active class for styling
-      this.classList.toggle('active');
-
-      // Toggle panel visibility
-      const panel = this.nextElementSibling;
-      if (panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + 'px';
-      }
-    });
-  });
-
-  // Optional: Animate section fade-in on scroll
-  const sections = document.querySelectorAll('section');
-  const appearOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-
-  const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      appearOnScroll.unobserve(entry.target);
-    });
-  }, appearOptions);
-
-  sections.forEach(section => {
-    appearOnScroll.observe(section);
+// Navbar active class
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  const fromTop = window.scrollY + 120;
+  navLinks.forEach(link => {
+    const section = document.querySelector(link.getAttribute('href'));
+    if (section && section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    }
   });
 });
