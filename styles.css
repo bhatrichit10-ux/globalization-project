@@ -54,6 +54,7 @@ nav {
   background: -webkit-linear-gradient(45deg, #fff 80%, #40bcf4 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   animation: fadeUp .9s cubic-bezier(.36,1.09,.77,1) 0s 1 normal both;
+  white-space: pre-line;
 }
 .hero-lead {
   font-size: 1.3rem; color: #d2d7dc; line-height: 1.5;
@@ -65,46 +66,10 @@ nav {
   to   { opacity: 1; transform: none;}
 }
 
-.meta-bar {
-  display: flex; align-items: center; gap: 1.3rem;
-  font-size: 1.04rem; margin-bottom: 1.6rem; opacity: 0.90;
-}
-.badge {
-  display: inline-block; min-width: 34px; padding: 0.2em 1em;
-  border-radius: 1em; font-weight: 700;
-  font-size: 1em; margin: 0 2px;
-  color: #111;
-  background: #ffe169;
-}
-.badge.blue { color: #fff; background: #397EFF;}
-.badge.yellow { color: #111; background: #FFE169;}
-.badge.pulse { animation: pulseBadge 1.25s infinite alternate;}
-@keyframes pulseBadge {
-  from { box-shadow: 0 0 0 #FFA60000;}
-  to   { box-shadow: 0 0 14px #ffc20099;}
-}
-
 .globe-frame {
   flex-shrink: 0; width: 380px; max-width: 90vw; min-height: 410px;
   display: flex; align-items: center; justify-content: center;
 }
-
-.hero-cta {
-  background: linear-gradient(90deg,#FFC200,#ffe082);
-  color: #101015; font-size: 1.18rem; font-weight: 700;
-  padding: 1.08em 2.4em; border:none; border-radius: 16px;
-  display: inline-flex; align-items: center; gap: .85em; margin-top: 18px;
-  box-shadow: 0 10px 32px #FFC20030;
-  cursor: pointer; outline:none;
-  transition: background .26s, box-shadow .22s, transform .13s;
-}
-.hero-cta:hover, .hero-cta:focus {
-  background: linear-gradient(85deg,#FFD13D 10%,#FFC20090 97%);
-  box-shadow: 0 5px 30px #FFC20077,0 1px 8px #fff3;
-  transform: translateY(-2px) scale(1.025);
-}
-.hero-cta:active { transform: scale(.98);}
-.hero-cta .icon { font-size: 1.17em; line-height: 1; }
 
 .section {
   max-width: 950px;
@@ -112,8 +77,8 @@ nav {
   padding: 2.7rem 2.3rem;
   background: #171a21;
   border-radius: 1.5rem;
-  box-shadow: 0 4px 18px #14151B 11%;
-  border-top: 2.6px solid #23252B;
+  box-shadow: 0 4px 18px #14151b 11%;
+  border-top: 2.6px solid #23252b;
   opacity: 0; transform: translateY(50px);
   transition: opacity 0.7s cubic-bezier(.28,1.35,.76,1.07),transform 0.8s cubic-bezier(.33,1.37,.77,1.07);
 }
@@ -131,11 +96,30 @@ nav {
 .section ul li { margin-bottom: 0.77em;}
 .section img {
   border-radius: 1.2rem;
-  margin: 2em 0; max-width: 97%; max-height: 340px; box-shadow: 0 2px 18px #40BCF477;
+  margin: 2em 0; max-width: 97%; max-height: 340px; box-shadow: 0 2px 18px #40bcf477;
 }
 
-@media (max-width: 800px) {
-  .main-hero {flex-direction:column;gap: 2.7rem;}
-  .globe-frame {margin: 0 auto;}
-  .section {padding: 1rem;}
+/* Cursor animation */
+#cursor-blob {
+  pointer-events: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 48px; height: 48px;
+  background: radial-gradient(circle at 60% 60%, #40bcf4 70%, #222 100%);
+  border-radius: 50%;
+  opacity: 0.18;
+  transform: translate(-50%, -50%) scale(1.0);
+  transition: background 0.6s, opacity 0.18s;
+  z-index: 9999;
+  mix-blend-mode: lighten;
+  will-change: transform;
+}
+
+.nav-links a:hover ~ #cursor-blob {
+  background: radial-gradient(circle at 30% 60%, #FFC200 70%, #23252b 100%);
+  opacity: 0.22;
+}
+
+body:hover #cursor-blob {
+  opacity: 0.19;
 }
