@@ -199,17 +199,17 @@ function App() {
           <div className="space-y-4 bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-xl">
             <div className="space-y-2">
               <p className="text-gray-400 text-sm tracking-wider uppercase">Presented By</p>
-              <h2 className="text-3xl font-bold">Your Name</h2>
+              <h2 className="text-3xl font-bold">Richit</h2>
             </div>
             <div className="border-t border-white/10 my-4"></div>
             <div className="grid grid-cols-2 gap-4 text-left">
               <div>
                 <p className="text-gray-400 text-sm">Roll Number</p>
-                <p className="text-xl font-bold">12345</p>
+                <p className="text-xl font-bold">28</p>
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Class</p>
-                <p className="text-xl font-bold">XII-A</p>
+                <p className="text-xl font-bold">X-D</p>
               </div>
             </div>
             <div className="border-t border-white/10 my-4"></div>
