@@ -240,7 +240,7 @@ function App() {
             <div className="flex items-center space-x-2">
               <Globe className="w-7 h-7" />
               <span className="text-xl font-bold tracking-tight">
-                Globalisation®
+               Richit®
               </span>
             </div>
             <div className="hidden md:flex items-center space-x-10">
@@ -609,7 +609,7 @@ function App() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center space-x-2">
               <Globe className="w-6 h-6" />
-              <span className="text-lg font-bold">Globalisation®</span>
+              <span className="text-lg font-bold">Richit®</span>
             </div>
             <div className="flex gap-8 text-gray-400">
               <a href="#overview" className="hover:text-white transition-colors">Overview</a>
